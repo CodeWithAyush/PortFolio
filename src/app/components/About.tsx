@@ -45,7 +45,7 @@ const About = (props: Props) => {
                 return (
                   <div key={id}>
                     <div className="mb-2 font-bold text-lg">{item.title}</div>
-                    <div className="w-full  border border-[#34495e]  h-4 p-[2px]">
+                    <div className="w-full  border border-[#34495e]  h-4 p-[2px]"> 
                       <div
                         className="bg-[#34495e] h-full  "
                         style={{ width: item?.rate }}
