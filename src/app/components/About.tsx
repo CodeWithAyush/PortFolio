@@ -43,7 +43,7 @@ const About = (props: Props) => {
             <div className="grid-cols-2 grid gap-8 pt-12">
               {skill?.map((item, id) => {
                 return (
-                  <div>
+                  <div key={id}>
                     <div className="mb-2 font-bold text-lg">{item.title}</div>
                     <div className="w-full  border border-[#34495e]  h-4 p-[2px]">
                       <div
@@ -69,7 +69,6 @@ const About = (props: Props) => {
         <button
           onClick={() => {
             setOpen(true);
-            console.log("LLL")
           }}
           className="border-black hover:bg-black hover:text-white text-black text-lg border-2 rounded-md py-2 px-7 font-bold mt-12"
         >

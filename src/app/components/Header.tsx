@@ -58,12 +58,15 @@ const navigation = [
 const Header = () => {
   return (
     <div>
-      <div className="flex justify-between border p-5">
-        <div>LOGO</div>
+      <div className="flex justify-between border bg-transparent p-5">
+        <div className="text-2xl tracking-wider font-bold"> &lt;AYUSH/&gt;</div>
         <div className="flex gap-1">
           {navigation?.map((item, id) => {
             return (
-              <div key={id} className="font-poppins py-2 px-3 hover:bg-slate-100 rounded flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out text-sm">
+              <div
+                key={id}
+                className="font-poppins py-2 px-3 hover:bg-slate-100 rounded flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out text-sm"
+              >
                 {item?.icon}
                 {item?.name}
               </div>

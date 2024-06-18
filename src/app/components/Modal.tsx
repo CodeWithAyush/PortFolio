@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 type Props = {
   show: boolean;
-  setOpen: any;
+  setOpen?: any;
 };
 
 const personalDetails = [
@@ -37,18 +37,16 @@ const experience = [
 ];
 
 const education = [
-    { year: "2018", title: "ENGINEERING DEGREE", place: "IIT FARAH" },
-    { year: "2018", title: "Web Developer", place: "Envato" },
-    { year: "2018", title: "Web Developer", place: "Envato" },
-  ];
+  { year: "2018", title: "ENGINEERING DEGREE", place: "IIT FARAH" },
+  { year: "2018", title: "Web Developer", place: "Envato" },
+  { year: "2018", title: "Web Developer", place: "Envato" },
+];
 
-  
 const Modal = (props: Props) => {
-  console.log(props?.show,"LL")
   return (
     <div>
-      <Transition.Root show={true} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={props?.setOpen}>
+      {/* <Transition.Root show={false} as={Fragment}>
+        <Dialog as="div" onClose={props?.setOpen}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -84,7 +82,7 @@ const Modal = (props: Props) => {
             </div>
           </div>
         </Dialog>
-      </Transition.Root>
+      </Transition.Root> */}
     </div>
   );
 };

@@ -1,9 +1,12 @@
-// "use client";
+"use client";
 import React from "react";
-// import Typewriter from "typewriter-effect";    
+// import Typewriter from "typewriter-effect";
 // import Typewriter from 'react-simple-typewriter';
 // import { ReactTyped } from "react-typed";
 // import FacebookIcon from "../images/facebook.svg";
+import Lottie from "lottie-react";
+import introLogo from "../asset/lottie/intro.json";
+import { IdentificationIcon } from "@heroicons/react/16/solid";
 
 type Props = {};
 
@@ -104,23 +107,26 @@ const icons = [
 
 const Intro = (props: Props) => {
   return (
-    <div className="bg-slate-100 font-poppins py-40">
-      <div className="flex justify-center items-center">
+    <div className="bg-slate-100 font-poppins py-20">
+      <div className="lg:flex justify-evenly items-center px-5 sm:px-0">
         <div className="flex flex-col justify-center items-center gap-3">
-          <div className="border w-60 h-60">ICON</div>
-          <div className="text-lg font-bold text-gray-700">
-            Hello, Im Ayush Sengar
+          <div className="text-5xl font-bold text-gray-700">
+            <p className="">Hi, there!</p>
+            <p className="">I am</p>
+            <p className="text-7xl bg-gradient-to-r from-indigo-600  to-emerald-400 inline-block text-transparent bg-clip-text min-h-20">
+              Ayush Sengar
+            </p>
           </div>
           <div className="text-5xl font-extrabold font-mont tracking-wide">
-            Full Stack Developer
+            Web Developer
           </div>
           {/* <Typewriter
             options={{
               strings: ["Hello", "World"],
               autoStart: true,
               loop: true,
-            }}
-          /> */}
+              }}
+              /> */}
           <div className="max-w-md text-lg text-gray-500">
             Im a Front-end React Developer based In India, over 2 years of
             professional experience.
@@ -130,14 +136,19 @@ const Intro = (props: Props) => {
           <div className="flex gap-4 mt-3">
             {icons?.map((item, id) => {
               return (
-                <div className="flex items-center gap-4">
+                <div
+                  key={`social-${IdentificationIcon}`}
+                  className="flex items-center gap-4"
+                >
                   <a
                     className="hover:-translate-y-1 duration-300 ease-in-out"
                     href="#"
                   >
                     {item?.svgIcon}{" "}
                   </a>
-                  <div className="border-r border-slate-300 h-2"></div>{" "}
+                  {id < icons?.length - 1 && (
+                    <div className="border-r border-slate-300 h-2"></div>
+                  )}
                 </div>
               );
             })}
@@ -145,6 +156,11 @@ const Intro = (props: Props) => {
           <button className="border-black hover:bg-black hover:text-white text-black text-lg border-2 rounded-full py-2 px-7 font-bold mt-5 hover:-translate-y-1 duration-300 ease-in-out">
             Download CV
           </button>
+        </div>
+        <div className="flex lg:block justify-center">
+          <div className="w-[30rem] ">
+            <Lottie animationData={introLogo} loop={true} />
+          </div>
         </div>
       </div>
     </div>
