@@ -13,15 +13,22 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        varela: ["Varela Round", "sans-serif"],
+      },
     },
     screens: {
-      "sm":"576px",
-      "md":"768px",
-      "lg":"1024px",
-      "2lg":"1200px",
+      sm: "576px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1200px",
+      "2lg": "1200px",
       "1.5xl": "1340px",
     },
   },
   plugins: [],
+  darkMode: "class",
 };
 export default config;

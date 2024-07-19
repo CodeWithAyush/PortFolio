@@ -7,6 +7,7 @@ import { NewspaperIcon } from "@heroicons/react/24/outline";
 import { IdentificationIcon } from "@heroicons/react/24/outline";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
+import Logo from "../asset/Logo.png";
 
 type Props = {
   children: any;
@@ -58,14 +59,15 @@ const navigation = [
 const Header = () => {
   return (
     <div>
-      <div className="flex justify-between border bg-transparent p-5">
-        <div className="text-2xl tracking-wider font-bold"> &lt;AYUSH/&gt;</div>
+      <div className="flex justify-between bg-transparent p-5">
+        {/* <img className="w-52" src={Logo?.src} /> */}
+        <span className="text-3xl font-extrabold tracking-widest font-varela dark:text-white">&lt;AYUSH/&gt;</span>
         <div className="flex gap-1">
           {navigation?.map((item, id) => {
             return (
               <div
                 key={id}
-                className="font-poppins py-2 px-3 hover:bg-slate-100 rounded flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out text-sm"
+                className="font-poppins dark:text-white py-2 px-3 hover:bg-slate-100 dark:hover:text-black rounded flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out text"
               >
                 {item?.icon}
                 {item?.name}
