@@ -6,7 +6,7 @@ interface IconItemsIProps {
   label: string;
 }
 const IconItems = ({ icon, label }: IconItemsIProps) => {
-  console.log(icon, "LL");
+  // console.log(icon, "LL");
 
   return (
     <div>

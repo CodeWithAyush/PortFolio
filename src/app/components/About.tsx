@@ -52,7 +52,7 @@ const iconItems = [
 
 const About = (props: Props) => {
   const [open, setOpen] = useState(false);
-  console.log(open, "LL");
+  // console.log(open, "LL");
 
   return (
     <div className=" font-poppins  md:px-20 px-5 w-full 1.5xl:mx-auto space-y-10 md:mt-20 mt-10">

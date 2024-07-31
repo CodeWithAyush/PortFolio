@@ -50,7 +50,7 @@ const iconItems = [
 
 const Skills = (props: Props) => {
   const [open, setOpen] = useState(false);
-  console.log(open, "LL");
+  // console.log(open, "LL");
 
   const settings = {
     dots: false,

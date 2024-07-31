@@ -21,7 +21,7 @@ const expData = [
 
 const Education = (props: Props) => {
   return (
-    <div className="md:px-20 px-5 sm:space-y-10 space-y-5 md:mt-20 mt-10">
+    <div className="font-poppins md:px-20 px-5 sm:space-y-10 space-y-5 md:mt-20 mt-10">
       <div className="text-3xl sm:text-5xl font-bold flex lg:justify-start justify-center tracking-wide dark:text-white">
         Education
       </div>
