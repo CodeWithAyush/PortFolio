@@ -146,7 +146,7 @@ const Contact = (props: Props) => {
           </div>
           <div className="space-y-10 lg:max-w-md xl:max-w-full dark:text-white">
             <div className="space-y-5">
-              <p className="text-3xl ">
+              <p className="text-3xl font-bold">
                 Get in <span className="text-green-600 tracking-wide">Touch</span>
               </p>
               <p className="xl:text-xl sm:text-lg tracking-wide">

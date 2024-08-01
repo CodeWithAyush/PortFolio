@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -42,14 +42,14 @@ export default function RootLayout({
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
     return () => {
-      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
   return (
@@ -70,20 +70,34 @@ export default function RootLayout({
       <body>
         <div className="">
           <Provider>
-            <Switcher />
-            <Header />
+            <div className="sticky top-0 bg-white dark:bg-black z-50">
+              <Header />
+            </div>
             <Intro />
-            <About />
-            <Skills />
-            <Experience />
-            <Education />
-            <Contact />
-            <Footer/>
+            <div id="about" className="pt-8 -mt-8">
+              <About />
+            </div>
+            <div id="skills"  className="pt-8 -mt-8">
+              <Skills />
+            </div>
+            <div id="experience" className="pt-8 -mt-8">
+              <Experience />
+            </div>
+            <div id="education" className="pt-8 -mt-8">
+              <Education />
+            </div>
+            <div id="contact" className="pt-5 -mt-5">
+              <Contact />
+            </div>
+            <Footer />
             {children}
             <div>
               {isVisible && (
-                <button onClick={scrollToTop} className="fixed bottom-5 right-5 bg-black dark:bg-white hover:bg-slate-400 text-white dark:text-black font-bold p-3 text-3xl dont-bold rounded-full transition-all duration-300 ease-in-out">
-                  <IoIosArrowUp/>
+                <button
+                  onClick={scrollToTop}
+                  className="fixed bottom-5 right-5 bg-black dark:bg-white hover:bg-slate-400 text-white dark:text-black font-bold p-3 text-3xl dont-bold rounded-full transition-all duration-300 ease-in-out"
+                >
+                  <IoIosArrowUp />
                 </button>
               )}
             </div>
