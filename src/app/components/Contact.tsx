@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { LuPaperclip } from "react-icons/lu";
+import emailjs from "@emailjs/browser";
 
 type Props = {};
 
 const Contact = (props: Props) => {
+  const form: any = useRef();
   const email = "ayushsengar6@gamil.com";
   const subject = "Hello from Ayush's Portfolio";
   const body = "Hi there, I would like to get in touch with you about...";
@@ -16,6 +18,9 @@ const Contact = (props: Props) => {
   const place = "Agra, India";
   const latitude = "27.205940"; // Replace with the latitude of your location
   const longitude = "77.975363";
+  const serviceID: any = process.env.NEXT_PUBLIC_YOUR_SERVICE_ID;
+  const templateID: any = process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID;
+  const publicKey: any = process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY;
 
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
     subject
@@ -33,6 +38,38 @@ const Contact = (props: Props) => {
   const handleIconClick = () => {
     fileInputRef.current.click();
   };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    // Implement email sending logic here
+    emailjs
+      .sendForm(serviceID, templateID, form.current, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+
+    // console.log("Form Data:", formData,serviceID, templateID,publicKey);
+  };
 
   return (
     <div>
@@ -42,13 +79,17 @@ const Contact = (props: Props) => {
         </div>
         <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
           <div className="lg:max-w-xl w-full">
-            <form className="sm:space-y-10 space-y-5" action="">
+            <form ref={form} className="sm:space-y-10 space-y-5" onSubmit={handleSubmit}>
               <div className="relative">
                 <input
                   type="text"
                   id="floating_filled"
                   className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=""
+                  value={formData?.name}
+                  name="name"
+                  onChange={handleChange}
+                  required
                 />
                 <label
                   htmlFor="floating_filled"
@@ -63,6 +104,10 @@ const Contact = (props: Props) => {
                   id="floating_filled"
                   className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=""
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
                 <label
                   htmlFor="floating_filled"
@@ -76,6 +121,10 @@ const Contact = (props: Props) => {
                   id="floating_filled"
                   className="block rounded-t-lg h-40 px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=""
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  name="message"
                 />
                 <label
                   htmlFor="floating_filled"
@@ -137,9 +186,9 @@ const Contact = (props: Props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
                     Send
-                  </span>
+                  </button>
                 </a>
               </div>
             </form>
@@ -147,18 +196,23 @@ const Contact = (props: Props) => {
           <div className="space-y-10 lg:max-w-md xl:max-w-full dark:text-white">
             <div className="space-y-5">
               <p className="text-3xl font-bold">
-                Get in <span className="text-green-600 tracking-wide">Touch</span>
+                Get in{" "}
+                <span className="text-green-600 tracking-wide">Touch</span>
               </p>
               <p className="xl:text-xl sm:text-lg tracking-wide">
-                I&apos;d love to hear from you! Whether you have a project in mind,
-                need a collaboration partner, or just want to say hello, feel
-                free to reach out. You can contact me through the form left, or
-                directly via email or phone. I aim to respond within 24 hours.
+                I&apos;d love to hear from you! Whether you have a project in
+                mind, need a collaboration partner, or just want to say hello,
+                feel free to reach out. You can contact me through the form
+                left, or directly via email or phone. I aim to respond within 24
+                hours.
               </p>
             </div>
             <div>
               <div className="flex items-center sm:gap-10 gap-5 ">
-                <a href={mailtoLink} className=" bg-black rounded-full p-3 hover:bg-blue-500 transition duration-300  hover:ease-in-out hover:scale-110 ">
+                <a
+                  href={mailtoLink}
+                  className=" bg-black rounded-full p-3 hover:bg-blue-500 transition duration-300  hover:ease-in-out hover:scale-110 "
+                >
                   <MdEmail className="text-2xl  text-white" />
                 </a>
                 <a href={mailtoLink} className="xl:text-xl sm:text-lg">
@@ -168,7 +222,10 @@ const Contact = (props: Props) => {
             </div>
             <div>
               <div className="flex items-center sm:gap-10 gap-5 ">
-                <a href={telLink} className="bg-black rounded-full p-3 hover:bg-blue-500 transition duration-300  hover:ease-in-out hover:scale-110">
+                <a
+                  href={telLink}
+                  className="bg-black rounded-full p-3 hover:bg-blue-500 transition duration-300  hover:ease-in-out hover:scale-110"
+                >
                   <FaPhoneAlt className="text-2xl  text-white" />
                 </a>
                 <a href={telLink} className="xl:text-xl sm:text-lg">
@@ -178,10 +235,17 @@ const Contact = (props: Props) => {
             </div>
             <div>
               <div className="flex items-center sm:gap-10 gap-5 ">
-                <a href={geoLink} className="bg-black rounded-full p-3 hover:bg-blue-500 transition duration-300  hover:ease-in-out hover:scale-110">
+                <a
+                  href={geoLink}
+                  className="bg-black rounded-full p-3 hover:bg-blue-500 transition duration-300  hover:ease-in-out hover:scale-110"
+                >
                   <HiLocationMarker className="text-2xl  text-white" />
                 </a>
-                <a href={geoLink} target="_blank" className="xl:text-xl sm:text-lg">
+                <a
+                  href={geoLink}
+                  target="_blank"
+                  className="xl:text-xl sm:text-lg"
+                >
                   {place}
                 </a>
               </div>

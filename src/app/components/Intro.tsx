@@ -7,7 +7,8 @@ import React from "react";
 import Lottie from "lottie-react";
 import introLogo from "../asset/lottie/intro.json";
 import { IdentificationIcon } from "@heroicons/react/16/solid";
-import { FiFacebook, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FiFacebook, FiLinkedin, FiGithub,FiYoutube  } from "react-icons/fi";
+import { AiOutlineYoutube } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 
@@ -16,33 +17,38 @@ type Props = {};
 const icons = [
   {
     svgIcon: (
-      <FiFacebook className="text-3xl p-1 text-[#6B7280] hover:text-[#1877F2] dark:hover:text-[#6B7280] " />
+      <AiOutlineYoutube  className="sm:text-4xl text-3xl p-1 text-[#6B7280] hover:text-[#FF0000] dark:hover:text-[#6B7280] " />
     ),
-    name: "Facebook",
+    name: "Youtube",
+    link: "https://www.youtube.com/@ayushsengar3016",
   },
   {
     svgIcon: (
-      <FaXTwitter className="text-3xl p-1 text-[#6B7280] hover:text-black dark:hover:text-[#6B7280]" />
+      <FaXTwitter className="sm:text-3xl text-2xl p-1 text-[#6B7280] hover:text-black dark:hover:text-[#6B7280]" />
     ),
     name: "Twitter",
+    link: "https://x.com/Ayushsengar10",
   },
   {
     svgIcon: (
-      <FaInstagram className="text-3xl p-1 text-[#6B7280] hover:text-[#d62976] dark:hover:text-[#6B7280]" />
+      <FaInstagram className="sm:text-3xl text-2xl p-1 text-[#6B7280] hover:text-[#d62976] dark:hover:text-[#6B7280]" />
     ),
     name: "Instagram",
+    link: "https://www.instagram.com/iayushsengar/",
   },
   {
     svgIcon: (
-      <FiGithub className="text-3xl p-1 text-[#6B7280] hover:text-[#2b3137] dark:hover:text-[#6B7280]" />
+      <FiGithub className="sm:text-3xl text-2xl p-1 text-[#6B7280] hover:text-[#2b3137] dark:hover:text-[#6B7280]" />
     ),
     name: "Github",
+    link: "https://github.com/CodeWithAyush",
   },
   {
     svgIcon: (
-      <FiLinkedin className="text-3xl p-1 text-[#6B7280] hover:text-[#0072b1] dark:hover:text-[#6B7280]" />
+      <FiLinkedin className="sm:text-3xl text-2xl p-1 text-[#6B7280] hover:text-[#0072b1] dark:hover:text-[#6B7280]" />
     ),
     name: "Linkedin",
+    link: "https://www.linkedin.com/in/ayush-sengar-a63856166/",
   },
 ];
 
@@ -84,7 +90,8 @@ const Intro = (props: Props) => {
                 >
                   <a
                     className="hover:-translate-y-1 duration-300 ease-in-out"
-                    href="#"
+                    href={item?.link}
+                    target="_blank"
                   >
                     {item?.svgIcon}{" "}
                   </a>
