@@ -1,16 +1,15 @@
 "use client";
-import React from "react";
 // import Typewriter from "typewriter-effect";
 // import Typewriter from 'react-simple-typewriter';
 // import { ReactTyped } from "react-typed";
 // import FacebookIcon from "../images/facebook.svg";
-import Lottie from "lottie-react";
-import introLogo from "../asset/lottie/intro.json";
 import { IdentificationIcon } from "@heroicons/react/16/solid";
-import { FiFacebook, FiLinkedin, FiGithub,FiYoutube  } from "react-icons/fi";
+import Lottie from "lottie-react";
 import { AiOutlineYoutube } from "react-icons/ai";
-import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
+import introLogo from "../asset/lottie/intro.json";
 
 type Props = {};
 
@@ -77,7 +76,7 @@ const Intro = (props: Props) => {
           <div className="lg:max-w-md max-w-lg sm:text-lg text-gray-500 dark:text-white tracking-wide">
             Im a Web Developer based In India, over 2.5+ years of professional
             experience. I code and create web elements for amazing people around
-            the world. I like work with new people.
+            the world. I like to work with new people.
           </div>
           {/* <FacebookIcon /> */}
           {/* <img src={FacebookIcon} alt="" /> */}

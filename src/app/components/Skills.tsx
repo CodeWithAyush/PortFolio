@@ -1,23 +1,22 @@
 "use client";
-import React, { useState } from "react";
-import Modal from "./Modal";
-import IconItems from "./IconItems";
-import Slider from "react-slick";
-import JSIcon from "../asset/javascript.png";
-import ReactIcon from "../asset/react.png";
-import NodeIcon from "../asset/nodejs.png";
+import { useState } from "react";
+import Marquee from "react-fast-marquee";
 import NestIcon from "../asset/Nest.png";
-import GatsbyIcon from "../asset/gatsby.png";
-import TailwindIcon from "../asset/tailwind.png";
-import MongoDBIcon from "../asset/mongodb.png";
-import TSIcon from "../asset/typescript.png";
-import I18NextIcon from "../asset/i18.png";
-import CIcon from "../asset/c.png";
 import BootstrapIcon from "../asset/bootstrap.png";
+import CIcon from "../asset/c.png";
 import ContentfulIcon from "../asset/contentful.png";
-import JavaIcon from "../asset/java.png";
+import GatsbyIcon from "../asset/gatsby.png";
 import GaIcon from "../asset/googleanalytics.png";
+import I18NextIcon from "../asset/i18.png";
+import JavaIcon from "../asset/java.png";
+import JSIcon from "../asset/javascript.png";
+import MongoDBIcon from "../asset/mongodb.png";
+import NodeIcon from "../asset/nodejs.png";
+import ReactIcon from "../asset/react.png";
+import TailwindIcon from "../asset/tailwind.png";
+import TSIcon from "../asset/typescript.png";
 import ViteIcon from "../asset/vite.png";
+import IconItems from "./IconItems";
 
 type Props = {};
 
@@ -62,7 +61,7 @@ const Skills = (props: Props) => {
     autoplaySpeed: 4000,
     cssEase: "linear",
     pauseOnHover: true,
-    arrows:false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1500, // Screen width up to 1024px
@@ -97,7 +96,7 @@ const Skills = (props: Props) => {
       {
         breakpoint: 400, // Screen width up to 480px
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
         },
       },
     ],
@@ -109,11 +108,16 @@ const Skills = (props: Props) => {
         Skills
       </div>
       <div>
-        <Slider {...settings}>
+        {/* <Slider {...settings}>
           {iconItems?.map((item, n) => {
             return <IconItems key={n} icon={item?.icon} label={item?.label} />;
           })}
-        </Slider>
+        </Slider> */}
+        <Marquee pauseOnHover speed={80} className="">
+          {iconItems?.map((item, n) => {
+            return <IconItems key={n} icon={item?.icon} label={item?.label} className={"mr-10"} />;
+          })}
+        </Marquee>
       </div>
       {/* <div className="1.5xl:px-0 px-5">
         <div className="text-5xl font-mont font-extrabold mb-16 tracking-wide">

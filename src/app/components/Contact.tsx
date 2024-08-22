@@ -42,7 +42,10 @@ const Contact = (props: Props) => {
     name: "",
     email: "",
     message: "",
+    file: selectedFile,
   });
+  // console.log(selectedFile,"LL");
+  
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -55,8 +58,16 @@ const Contact = (props: Props) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     // Implement email sending logic here
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('message', formData.message);
+    if (selectedFile) {
+      formDataToSend.append('my_file', selectedFile);
+    }
+
     emailjs
-      .sendForm(serviceID, templateID, form.current, {
+      .sendForm(serviceID, templateID,e.target, {
         publicKey: publicKey,
       })
       .then(
@@ -68,7 +79,7 @@ const Contact = (props: Props) => {
         }
       );
 
-    // console.log("Form Data:", formData,serviceID, templateID,publicKey);
+    // console.log("Form Data:", formData,form,e.target);
   };
 
   return (
@@ -79,7 +90,11 @@ const Contact = (props: Props) => {
         </div>
         <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
           <div className="lg:max-w-xl w-full">
-            <form ref={form} className="sm:space-y-10 space-y-5" onSubmit={handleSubmit}>
+            <form
+              ref={form}
+              className="sm:space-y-10 space-y-5"
+              onSubmit={handleSubmit}
+            >
               <div className="relative">
                 <input
                   type="text"
@@ -137,6 +152,7 @@ const Contact = (props: Props) => {
                 <div>
                   <input
                     type="file"
+                    name="my_file"
                     ref={fileInputRef}
                     style={{ display: "none" }}
                     onChange={handleFileChange}

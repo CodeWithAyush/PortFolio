@@ -1,25 +1,22 @@
 "use client";
-import React, { useState } from "react";
-import Modal from "./Modal";
-import IconItems from "./IconItems";
-import Slider from "react-slick";
-import JSIcon from "../asset/javascript.png";
-import ReactIcon from "../asset/react.png";
-import NodeIcon from "../asset/nodejs.png";
-import NestIcon from "../asset/Nest.png";
-import GatsbyIcon from "../asset/gatsby.png";
-import TailwindIcon from "../asset/tailwind.png";
-import MongoDBIcon from "../asset/mongodb.png";
-import TSIcon from "../asset/typescript.png";
-import I18NextIcon from "../asset/i18.png";
-import CIcon from "../asset/c.png";
-import BootstrapIcon from "../asset/bootstrap.png";
-import ContentfulIcon from "../asset/contentful.png";
-import JavaIcon from "../asset/java.png";
-import GaIcon from "../asset/googleanalytics.png";
-import ViteIcon from "../asset/vite.png";
 import Lottie from "lottie-react";
-import AboutImage from "../asset/lottie/about.json";
+import { useState } from "react";
+import NestIcon from "../asset/Nest.png";
+import BootstrapIcon from "../asset/bootstrap.png";
+import CIcon from "../asset/c.png";
+import ContentfulIcon from "../asset/contentful.png";
+import GatsbyIcon from "../asset/gatsby.png";
+import GaIcon from "../asset/googleanalytics.png";
+import I18NextIcon from "../asset/i18.png";
+import JavaIcon from "../asset/java.png";
+import JSIcon from "../asset/javascript.png";
+import AboutImage from "../asset/lottie/example.json";
+import MongoDBIcon from "../asset/mongodb.png";
+import NodeIcon from "../asset/nodejs.png";
+import ReactIcon from "../asset/react.png";
+import TailwindIcon from "../asset/tailwind.png";
+import TSIcon from "../asset/typescript.png";
+import ViteIcon from "../asset/vite.png";
 
 type Props = {};
 
@@ -55,12 +52,12 @@ const About = (props: Props) => {
   // console.log(open, "LL");
 
   return (
-    <div className=" font-poppins  md:px-20 px-5 w-full 1.5xl:mx-auto space-y-10 md:mt-20 mt-10">
-      <div className="lg:flex flex-row-reverse justify-between ">
-        <div className="lg:my-auto mx-auto max-w-2xl lg:max-w-full">
+    <div className=" font-poppins  md:px-20 px-5 w-full 1.5xl:mx-auto space-y-10 lg:mt-20">
+      <div className="lg:flex flex-row-reverse justify-between gap-5">
+        <div className="lg:my-auto  max-w-full">
           <Lottie animationData={AboutImage} loop={true} />
         </div>
-        <div className=" border-blue-600 lg:max-w-xl w-full space-y-3 my-auto">
+        <div className=" border-blue-600  w-full space-y-3 my-auto max-w-5xl">
           <div className="text-3xl sm:text-5xl font-mont font-extrabold sm:mb-10 tracking-wide dark:text-white">
             About Me
           </div>
